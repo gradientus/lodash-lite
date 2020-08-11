@@ -1,32 +1,22 @@
-const clamp = (num1, num2, num3) => {
-  num1 = Math.min(num1, num3);
-  num1 = Math.max(num1, num2);
-  return num1;
-};
+function pad(padString, padLength) {
+  let padAmount = 0;
+  let padChar = '*';
 
-/*
-params: num, start, end
-
-now check these:
-if num is smaller than start return false
-if num is larger than end return false
-if num between smaller and larger return true
-
-*/
-
-const inRange = (num, start, end) => {
-  if (!end) {
-    end = start;
-    start = 0;
-  } else if (start > end) {
-    let tempVal = end;
-    end = start;
-    start = tempVal;
-  }
-
-  if (num > start && num < end) {
-    return true;
+  if (padLength <= padString.length) {
+    return padString;
   } else {
-    return false;
+    padAmount = Math.abs(padLength - padString.length);
+    if (padAmount % 2 === 0) {
+      console.log(`${padChar.repeat(padAmount / 2)}${padString}${padChar.repeat(padAmount / 2)}`)
+    } else {
+      console.log(`${padChar.repeat(Math.floor(padAmount / 2))}${padString}${padChar.repeat(Math.floor(padAmount / 2) + 1)}`)
+    }
+
   }
 };
+
+
+
+
+
+pad('hi how are ya?', 20);

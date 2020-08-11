@@ -20,6 +20,28 @@ const _ = {
     } else {
       return false;
     }
+  },
+
+  words(stringInput) {
+    return stringInput.split(' ');
+  },
+
+
+  pad(padString, padLength) {
+    let padAmount = 0;
+    let padChar = ' ';
+
+    if (padLength <= padString.length) {
+      return padString;
+    } else {
+      padAmount = Math.abs(padLength - padString.length);
+      if (padAmount % 2 === 0) {
+        return `${padChar.repeat(padAmount / 2)}${padString}${padChar.repeat(padAmount / 2)}`;
+      } else {
+        return `${padChar.repeat(Math.floor(padAmount / 2))}${padString}${padChar.repeat(Math.floor(padAmount / 2) + 1)}`;
+      }
+
+    }
   }
 
 };
