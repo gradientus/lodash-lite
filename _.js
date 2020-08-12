@@ -42,6 +42,14 @@ const _ = {
       }
 
     }
+  },
+
+  has(obj, val) {
+    if (!obj[val]) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 };
