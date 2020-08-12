@@ -50,6 +50,27 @@ const _ = {
     } else {
       return true;
     }
+  },
+
+  invert(obj) {
+    let newObject = {};
+    for (const prop in obj) {
+      let newKey = obj[prop];
+      let newVal = prop;
+      newObject[newKey] = newVal;
+    };
+    return newObject;
+  },
+
+  findKey(obj, predicate) {
+    for (const prop in obj) {
+      let value = obj[prop];
+      let predicateReturnValue = predicate(value);
+      if (predicateReturnValue) {
+        return prop;
+      }
+    }
+    return undefined;
   }
 
 };
