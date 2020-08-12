@@ -85,8 +85,25 @@ const _ = {
       }
       return(arr);
     }
-  }
+  },
 
+  dropWhile(array, predicate) {
+    const cb = (element, index) => {
+      return !predicate(element, index, array);
+    }
+    let dropNumber = array.findIndex(cb);
+    let droppedArray = this.drop(array, dropNumber);
+    return droppedArray;
+  },
+
+  chunk(array, size = 1) {
+    let arrayChunks = [];
+    for (let i = 0; i < array.length; i+=size) {
+      let arrayChunk = array.slice(i, i + size);
+      arrayChunks.push(arrayChunk);
+    }
+    return arrayChunks;
+  }
 };
 
 

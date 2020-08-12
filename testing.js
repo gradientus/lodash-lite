@@ -1,22 +1,19 @@
-const myArray = ['phil', 48, 'eddie', 35];
+const myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-function drop(arr, val = undefined) {
-  if (val === 0) {
-    return arr;
-  } else if (val === undefined) {
-    myArray.shift();
-    return(arr);
-  } else {
-    for (let i = 0; i < val; i++) {
-      myArray.shift();
-    }
-    return(arr);
+function   chunk(array, size = 1) {
+  let arrayChunks = [];
+  for (let i = 0; i < array.length; i+=size) {
+    let arrayChunk = array.slice(i, i + size);
+    arrayChunks.push(arrayChunk);
   }
+  return arrayChunks;
 }
 
 
 
+  //break up the given array into chucks determined by the size
+  //returns an array containing all the smaller arrays
+  //if the arrays cannot be broke up evenly, the last chunk will be smaller than the specified size
+  //if no size is provided, then default is 1
 
-
-// if the value is more than the number of customElements, return an empty array
-// if there are 4 elements and the value is 2, a new array will be returned having dropped the first 2
+chunk(myArray, 5);
