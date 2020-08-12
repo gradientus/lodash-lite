@@ -71,6 +71,20 @@ const _ = {
       }
     }
     return undefined;
+  },
+
+  drop(arr, val = undefined) {
+    if (val === 0) {
+      return arr;
+    } else if (val === undefined) {
+      arr.shift();
+      return(arr);
+    } else {
+      for (let i = 0; i < val; i++) {
+        arr.shift();
+      }
+      return(arr);
+    }
   }
 
 };
